@@ -381,6 +381,10 @@ body {
 
 body {
   --table-border-width: 1px;
+  --table-column-first-border-width: 0;
+  --table-column-last-border-width: 0;
+  --table-header-border-width: 0;
+  --table-row-last-border-width: 0;
   --table-border-color: var(--hairline);
   --table-header-background: var(--card);
   --table-header-background-hover: var(--hover);
