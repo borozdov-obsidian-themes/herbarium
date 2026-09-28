@@ -1,5 +1,6 @@
-// Screenshot a page with headless Chrome over the DevTools protocol, after fonts
-// are ready and two frames have painted. Usage: node shot.mjs <url> <out.png> [width] [height]
+// Screenshot a page with headless Chrome over the DevTools protocol, with CSS
+// transitions and animations frozen, after fonts are ready and two frames have
+// painted. Usage: node shot.mjs <url> <out.png> [width] [height]
 import { spawn } from 'node:child_process';
 import { mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -60,6 +61,15 @@ try {
     if (i > 200) throw new Error(`page never loaded: ${result.value}`);
     await new Promise((r) => setTimeout(r, 50));
   }
+  // Chrome can style the page before the stylesheets apply; when it does, app.css's
+  // transitions on toggles (0.15s) and the range thumb (0.1s) run as the sheets land,
+  // and a capture could catch them mid-flight. transition: none cancels a running
+  // transition and settles the property at its final value. The range thumb is a
+  // pseudo-element of its own, so it is named next to ::before and ::after.
+  await send('Runtime.evaluate', {
+    expression: "document.head.insertAdjacentHTML('beforeend', '<style>*, *::before, *::after, *::-webkit-slider-thumb"
+      + " { transition: none !important; animation: none !important; }</style>')",
+  }, sessionId);
   await send('Runtime.evaluate', {
     expression: 'document.fonts.ready.then(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))))',
     awaitPromise: true,
