@@ -36,10 +36,14 @@ annotations, one literary serif headline, monospace labels and crimson ink for w
 
 ## Installation
 
-**From the community directory:** Settings → Appearance → Themes → Manage, search for
-**Borozdov Herbarium**, then **Install and use**.
+**From the community directory, as a variant:** this theme ships inside **Borozdov
+Trellis**. Install Borozdov Trellis under Settings → Appearance → Themes → Manage, then
+the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin, and
+choose **Herbarium** under Style Settings → Borozdov Trellis → Variant. The variant brings
+this theme's palette, type and corners; its own layout, and its embedded font if it has
+one, come with the full theme below.
 
-**By hand:** download `manifest.json` and `theme.css` from the
+**The full theme, by hand:** download `manifest.json` and `theme.css` from the
 [latest release](https://github.com/borozdov-obsidian-themes/herbarium/releases/latest) into
 `<vault>/.obsidian/themes/Borozdov Herbarium/`, then choose Borozdov Herbarium under
 Settings → Appearance → Themes.
@@ -60,5 +64,4 @@ MIT — see [LICENSE](LICENSE).
 **По-русски.** Тема из коллекции Borozdov. Два лика: светлый «Лён» — дневник ботаника на
 тёплом льне, и тёмный «Мох» — тот же дневник под пологом леса. Шалфейные пометки, один
 литературный заголовок с засечками (EB Garamond), моноширинные ярлыки и малиновые чернила
-для того, что вы делаете. Устанавливается из каталога: Настройки → Оформление → Темы →
-Настроить → Borozdov Herbarium → Установить и применить.
+для того, что вы делаете. В каталоге тема живёт вариантом Borozdov Trellis: установите Borozdov Trellis и плагин Style Settings, затем выберите Herbarium в Style Settings → Borozdov Trellis → Variant. Целиком, со своей вёрсткой, тема ставится вручную из последнего релиза репозитория.
