@@ -466,6 +466,15 @@ textarea {
   border: 1px solid var(--hairline);
 }
 
+/* Obsidian pins the date picker's calendar icon over the left edge of a date
+   field and makes room for it only on desktop: on Android it covers the first
+   digit. The property row already shows a calendar icon and a tap opens the
+   picker, so on Android the field shows just the date. */
+.is-android input[type="date"]::-webkit-calendar-picker-indicator,
+.is-android input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 /* No focus ring while typing: the caret and the selection already show
    where you are. Covers form fields and every contenteditable surface. */
 select.dropdown:focus, input:focus, textarea:focus,
